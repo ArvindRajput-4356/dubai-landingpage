@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
-    
+
     if (currentPage !== 'home') {
       setCurrentPage('home');
       // Give React a tick to render Home before scrolling
@@ -59,27 +59,27 @@ const App: React.FC = () => {
   const handleBackToHome = () => {
     setCurrentPage('home');
     setTimeout(() => {
-        const element = document.getElementById('industries');
-        if (element) {
-          element.scrollIntoView();
-        }
+      const element = document.getElementById('industries');
+      if (element) {
+        element.scrollIntoView();
+      }
     }, 100);
   };
 
   return (
     <div className="min-h-screen bg-brand-dark text-slate-50 font-sans selection:bg-brand-gold selection:text-slate-900">
-      
+
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-white/5 py-4' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-950/80 backdrop-blur-md py-4' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-6 flex justify-between items-center">
-          <div 
+          <div
             className="text-2xl font-display font-bold text-white tracking-tight cursor-pointer"
             onClick={() => {
               setCurrentPage('home');
               window.scrollTo(0, 0);
             }}
           >
-            NOVA<span className="text-brand-gold">.</span>
+            EAI<span className="text-brand-gold"> SYSTEMS</span>
           </div>
 
           {/* Desktop Menu */}
@@ -94,7 +94,7 @@ const App: React.FC = () => {
           </div>
 
           {/* Mobile Toggle */}
-          <button 
+          <button
             className="md:hidden text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -105,11 +105,11 @@ const App: React.FC = () => {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 p-6 flex flex-col gap-4 shadow-xl">
-             <button onClick={() => scrollToSection('industries')} className="text-left text-slate-300 hover:text-white py-2">Industries</button>
-             <button onClick={() => scrollToSection('services')} className="text-left text-slate-300 hover:text-white py-2">Services</button>
-             <button onClick={() => scrollToSection('results')} className="text-left text-slate-300 hover:text-white py-2">Results</button>
-             <button onClick={() => scrollToSection('pricing')} className="text-left text-slate-300 hover:text-white py-2">Pricing</button>
-             <button onClick={() => scrollToSection('contact')} className="text-left text-brand-gold font-semibold py-2">Book Strategy Call</button>
+            <button onClick={() => scrollToSection('industries')} className="text-left text-slate-300 hover:text-white py-2">Industries</button>
+            <button onClick={() => scrollToSection('services')} className="text-left text-slate-300 hover:text-white py-2">Services</button>
+            <button onClick={() => scrollToSection('results')} className="text-left text-slate-300 hover:text-white py-2">Results</button>
+            <button onClick={() => scrollToSection('pricing')} className="text-left text-slate-300 hover:text-white py-2">Pricing</button>
+            <button onClick={() => scrollToSection('contact')} className="text-left text-brand-gold font-semibold py-2">Book Strategy Call</button>
           </div>
         )}
       </nav>
@@ -127,7 +127,7 @@ const App: React.FC = () => {
             <CeoMessage />
           </>
         )}
-        
+
         {currentPage === 'mortgage' && (
           <MortgagePage onBack={handleBackToHome} />
         )}
