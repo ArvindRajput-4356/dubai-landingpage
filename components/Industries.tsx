@@ -54,65 +54,59 @@ const Industries: React.FC<IndustriesProps> = ({ onNavigate }) => {
     }
   };
 
-  const isClickable = (title: string) => 
-    title === "Mortgage AI" || 
-    title === "Real Estate AI" || 
+  const isClickable = (title: string) =>
+    title === "Mortgage AI" ||
+    title === "Real Estate AI" ||
     title === "Insurance AI";
 
   return (
-    <section id="industries" className="py-24 bg-brand-blue relative">
+    <section id="industries" className="py-32 bg-brand-lightGrey relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-4">
-            AI Solutions for <span className="text-brand-gold">High-Impact Industries</span>
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl font-sans font-bold text-brand-navy mb-6">
+            Industries We Serve
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
             Tailored automation infrastructure for the UAE's most demanding sectors.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {industries.map((industry, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               onClick={() => handleCardClick(industry.title)}
-              className={`group p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-brand-gold/50 transition-all duration-300 hover:bg-slate-800/50 relative overflow-hidden flex flex-col ${isClickable(industry.title) ? 'cursor-pointer' : ''}`}
+              className={`group p-10 rounded-2xl bg-white border border-gray-100 hover:border-brand-blue/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col ${isClickable(industry.title) ? 'cursor-pointer' : ''}`}
             >
-              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                <industry.icon size={100} className="text-brand-gold" />
+              <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                <industry.icon size={120} className="text-brand-blue" />
               </div>
-              
-              <div className="w-14 h-14 bg-blue-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <industry.icon className="text-brand-gold w-8 h-8" />
+
+              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                <industry.icon className="text-brand-blue w-8 h-8" />
               </div>
-              
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+
+              <h3 className="text-2xl font-bold text-brand-navy mb-6 flex items-center gap-2">
                 {industry.title}
-                {isClickable(industry.title) && <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-brand-gold" />}
               </h3>
-              
-              <ul className="space-y-3 flex-grow">
+
+              <ul className="space-y-4 flex-grow mb-8">
                 {industry.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-300 text-sm">
-                    <CheckCircle2 className="w-4 h-4 text-blue-500 mt-1 shrink-0" />
+                  <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
+                    <CheckCircle2 className="w-5 h-5 text-brand-blue mt-0.5 shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
 
               {isClickable(industry.title) && (
-                <div className="mt-6 pt-4 border-t border-slate-800 text-xs text-brand-gold uppercase font-bold tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                  Click to view details
+                <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between text-brand-blue font-semibold group-hover:text-blue-700 transition-colors">
+                  <span>Learn More</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </div>
               )}
             </div>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <a href="#services" className="inline-flex items-center gap-2 text-brand-gold hover:text-white transition-colors font-semibold group">
-            Explore Industry Solutions <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </a>
         </div>
       </div>
     </section>
